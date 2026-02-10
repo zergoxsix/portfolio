@@ -1,11 +1,11 @@
 <template>
-  <nav class="relative flex py-5 justify-evenly items-center text-sky-800 z-50 w-full before:absolute before:inset-0 before:bg-[url('/pattern.jpg')] before:bg-repeat before:bg-[size:150px_150px] before:opacity-5 before:-z-10">
+  <nav class="relative flex py-5 justify-evenly bg-neutral-50 items-center text-sky-800 z-50 w-full before:absolute before:inset-0 before:bg-[url('/pattern.jpg')] before:bg-repeat before:bg-[size:150px_150px] before:opacity-5 before:-z-10">
     <img src="/logo.svg" alt="logo du site">
 
     <div id="menue" class="flex gap-20 text-lg bg-white lg:bg-transparent max-lg:z-0 max-lg:flex-col max-lg:fixed max-lg:top-20 max-lg:right-0 max-lg:h-screen max-lg:w-64 max-lg:pt-24 max-lg:px-8 max-lg:items-center">
-      <a class="menue-link max-lg:p-2 max-lg:rounded" href="/">Accueil</a>
-      <a class="menue-link max-lg:p-2 max-lg:rounded" href="/">Portfolio</a>
-      <a class="menue-link max-lg:p-2 max-lg:rounded" href="/">A propos</a>
+      <a class="menue-link max-lg:p-2" href="/">Accueil</a>
+      <a class="menue-link max-lg:p-2" href="/">Portfolio</a>
+      <a class="menue-link max-lg:p-2" href="/">A propos</a>
       <a class="menue-link text-white max-lg:p-2 max-lg:rounded lg:hidden bg-slate-700" href="/">Contact</a>
     </div>
     

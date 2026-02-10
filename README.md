@@ -73,8 +73,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-
-Fond : bg-gray-950 ou bg-slate-950
-Texte : text-gray-300
-Accent : text-emerald-400 (vert tech) ou text-cyan-400

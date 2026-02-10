@@ -1,9 +1,9 @@
 <template>
-  <section id="heroSection" class="bg-slate-50 min-h-screen w-full flex items-center justify-center px-5 bg-white">
-    <div class="max-w-7xl w-full flex flex-wrap justify-evenly items-center gap-10">
+  <section id="heroSection" class=" bg-neutral-50 pt-5 px-5 lg:pt-40 flex items-center justify-center">
+    <div class="flex flex-wrap justify-evenly items-center gap-10">
       <img class="hero-animate w-[300px] h-[400px] lg:w-[350px] lg:h-[500px] rounded object-cover" src="/lubin.jpg" alt="Lubin Froeliger">
 
-      <div class="hero-animate max-w-[480px]">
+      <div class="hero-animate max-w-[480px] mx-0 lg:mx-40">
         <h1 class="text-3xl lg:text-4xl font-semibold text-sky-800">Bienvenue sur mon portfolio !</h1>
         <p class="text-xl text-slate-700 lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis deux ans. J'aime passé mes journée a codé !</p>
         <p class="mt-3 text-slate-700 text-base lg:text-lg">Je travaille principalement avec Vue.js, Nuxt et Tailwind CSS.</p>
@@ -28,10 +28,51 @@
       </div>
     </div>
   </section>
-  <section id="portfolio" class="">
-    <h2 class="text-3xl font-semibold text-sky-800 pl-48">Mes dernier projet:</h2>
-    <div>
-      <p>Back-end et frontend du site leriche poésie</p>
+  <section id="portfolio" class="pt-40 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-5">
+      <h2 class="title-animate text-3xl font-semibold text-sky-800 mb-20">Mes derniers projets</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Exemple de carte 1 -->
+        <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+          <img src="/portfolio.png" alt="image du projet portfolio" class="w-full h-56 lg:h-64 object-fit">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: Portfolio</h3>
+            <p class="text-sm text-slate-700 mb-3">Un site vitrine responsive permettant de montrer mes dernier projet ainsie que mes competence.</p>
+            <p class="text-xs text-slate-500">Technos : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+          </div>
+        </article>
+
+        <!-- Exemple de carte 2 -->
+        <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+          <img src="/placeholder.jpeg" alt="Capture du projet 2" class="w-full h-56 lg:h-64 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: LerichePoesie</h3>
+            <p class="text-sm text-slate-700 mb-3">Un site permettant a l'utilisateur de publier ces text de poésie via le dashboard de Strapi.</p>
+            <p class="text-xs text-slate-500">Technos : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+          </div>
+        </article>
+
+        <!-- Exemple de carte 3 -->
+        <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+          <img src="/placeholder.jpeg" alt="Capture du projet 3" class="w-full h-56 lg:h-64 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet 3 — Portfolio personnel</h3>
+            <p class="text-sm text-slate-700 mb-3">Mon portfolio personnel contenant mes réalisations et coordonnées, optimisé pour la performance.</p>
+            <p class="text-xs text-slate-500">Technos : Vue, Nuxt, GSAP, Tailwind</p>
+          </div>
+        </article>
+
+        <!-- Exemple de carte 4 -->
+        <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+          <img src="/placeholder.jpeg" alt="Capture du projet 4" class="w-full h-56 lg:h-64 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet 4 — Mini-application</h3>
+            <p class="text-sm text-slate-700 mb-3">Une mini-application démontrant des interactions en temps réel et une UI réactive.</p>
+            <p class="text-xs text-slate-500">Technos : Vue, WebSocket, Tailwind</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
@@ -39,7 +80,13 @@
 <script lang="ts" setup>
 const { $gsap } = useNuxtApp()
 
-onMounted(() => {
+onMounted(async () => {
+  // ✅ Force le scroll en haut au chargement
+  window.scrollTo(0, 0)
+
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  $gsap.registerPlugin(ScrollTrigger)
+
   $gsap.from(".hero-animate", {
     opacity: 0,
     y: 30,
@@ -48,14 +95,31 @@ onMounted(() => {
     ease: "power2.out",
     stagger: 0.2
   })
+
+  $gsap.from(".title-animate", {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: ".title-animate",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+  })
+
+  $gsap.from(".card-animate", {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: ".card-animate",
+      start: "top 85%",
+      toggleActions: "play none none none"
+    }
+  })
 })
 </script>
 
 <style scoped>
-.hero-animate {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-}
 </style>
