@@ -7,7 +7,7 @@
         <h1 class="text-3xl lg:text-4xl font-semibold text-sky-800">Bienvenue sur mon portfolio !</h1>
         <p class="text-xl text-slate-700 lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis deux ans. J'aime passé mes journée a codé !</p>
         <p class="mt-3 text-slate-700 text-base lg:text-lg">Je travaille principalement avec Vue.js, Nuxt et Tailwind CSS.</p>
-        <a class="mt-4 inline-flex items-center gap-2 text-sky-300 hover:text-sky-400 transition-colors" href="/">
+        <a class="mt-4 inline-flex items-center gap-2 text-sky-300 hover:text-sky-400 transition-colors" href="#portfolio">
           Mon portfolio
           <svg class="w-6 h-6 fill-sky-300" version="1.0" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1280.000000 640.000000"
@@ -33,52 +33,85 @@
       <h2 class="title-animate text-3xl font-semibold text-sky-800 mb-20">Mes derniers projets</h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Exemple de carte 1 -->
+
         <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
-          <img src="/portfolio.png" alt="image du projet portfolio" class="w-full h-56 lg:h-64 object-fit">
+          <img src="/portfolio.png" alt="image du projet portfolio" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: Portfolio</h3>
             <p class="text-sm text-slate-700 mb-3">Un site vitrine responsive permettant de montrer mes dernier projet ainsie que mes competence.</p>
-            <p class="text-xs text-slate-500">Technos : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+            <p class="text-xs text-slate-500">Technologie : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+            <button @click="openModal = 'portfolio'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
         </article>
 
-        <!-- Exemple de carte 2 -->
         <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
           <img src="/placeholder.jpeg" alt="Capture du projet 2" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: LerichePoesie</h3>
-            <p class="text-sm text-slate-700 mb-3">Un site permettant a l'utilisateur de publier ces text de poésie via le dashboard de Strapi.</p>
-            <p class="text-xs text-slate-500">Technos : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+            <p class="text-sm text-slate-700 mb-3">Un site permettant a l'utilisateur de publier ces text de poésie via le dashboard de Strapi simplement avec integration front automatique.</p>
+            <p class="text-xs text-slate-500">Technologie : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+            <button @click="openModal = 'leriche'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
         </article>
 
-        <!-- Exemple de carte 3 -->
         <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
-          <img src="/placeholder.jpeg" alt="Capture du projet 3" class="w-full h-56 lg:h-64 object-cover">
+          <img src="/wp-stage.png" alt="Capture du projet 3" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
-            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet 3 — Portfolio personnel</h3>
-            <p class="text-sm text-slate-700 mb-3">Mon portfolio personnel contenant mes réalisations et coordonnées, optimisé pour la performance.</p>
-            <p class="text-xs text-slate-500">Technos : Vue, Nuxt, GSAP, Tailwind</p>
+            <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: WP_stage</h3>
+            <p class="text-sm text-slate-700 mb-3">Un site web fesant office de rapport de stage de ma premiere periode de stage de terminale</p>
+            <p class="text-xs text-slate-500">Technologie : Vue, Nuxt, GSAP, Tailwind</p>
+            <button @click="openModal = 'personal'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
         </article>
 
-        <!-- Exemple de carte 4 -->
         <article class="card-animate bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
           <img src="/placeholder.jpeg" alt="Capture du projet 4" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet 4 — Mini-application</h3>
             <p class="text-sm text-slate-700 mb-3">Une mini-application démontrant des interactions en temps réel et une UI réactive.</p>
-            <p class="text-xs text-slate-500">Technos : Vue, WebSocket, Tailwind</p>
+            <p class="text-xs text-slate-500">Technologie : Vue, WebSocket, Tailwind</p>
+            <button @click="openModal = 'miniapp'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
         </article>
       </div>
     </div>
   </section>
+  
+  <ProjectModal v-if="openModal === 'portfolio'" title="Projet: Portfolio" @close="openModal = null">
+    <img src="/portfolio.png" alt="portfolio" class="w-full h-64 lg:h-[500px] object-cover mb-4">
+    <p class="text-slate-700">Détails étendus du projet Portfolio : site vitrine responsive réalisé avec Nuxt, animations GSAP et Tailwind. Il a été crée pour montrer mes competence et mes dernier projet.</p>
+    <p class="mt-3 text-xs text-slate-500">Tech : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+    <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="https://github.com/zergoxsix/portfolio">Voire le repo GitHub</a>
+  </ProjectModal>
+
+  <ProjectModal v-if="openModal === 'leriche'" title="Projet: LerichePoesie" @close="openModal = null">
+    <img src="/placeholder.jpeg" alt="leriche" class="w-full h-64 lg:h-[500px] object-cover mb-4">
+    <p class="text-slate-700">LerichePoesie est une plateforme collaborative dédiée à la publication de poésies. Développée avec mon maître de stage durant ma deuxieme periode de stage de l'anée de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche</a>, j'ai pris en charge l'intégralité du backend avec Strapi, ainsi que le développement du carrousel affichant les poésies et la génération automatique des pages. Le reste de l'interface frontend a été réalisé par mon maître de stage.</p>
+    <p class="mt-3 text-xs text-slate-500">Tech : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
+    <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="https://etienneleriche.com/">indisponible pour le moment</a>
+  </ProjectModal>
+
+  <ProjectModal v-if="openModal === 'personal'" title="Projet: WP_stage" @close="openModal = null">
+  <img src="/wp-stage.png" alt="image du site wp_stage" class="w-full h-64 lg:h-[500px] object-cover mb-4">
+  <p class="text-slate-700">Un site web crée l'ors de ma premiere periode de stage de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche,</a> qui a fait office de raport de stage montrant tout ce que j'ai apris durant cette periode comme Sass, Php, Wordpress, BootStrap</p>
+  <p class="mt-3 text-xs text-slate-500">Tech : Wordpress, php, BootStrap</p>
+  <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="/">indisponible pour le moment</a>
+  </ProjectModal>
+
+  <ProjectModal v-if="openModal === 'miniapp'" title="Projet: Mini-application" @close="openModal = null">
+    <img src="/placeholder.jpeg" alt="miniapp" class="w-full h-64 lg:h-[500px] object-cover mb-4">
+    <p class="text-slate-700">Mini-application démontrant des interactions temps réel via WebSocket, UI réactive et tests unitaires.</p>
+    <p class="mt-3 text-xs text-slate-500">Tech : Vue, WebSocket, Tailwind</p>
+  </ProjectModal>
+
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import ProjectModal from '~/components/ProjectModal.vue'
+
 const { $gsap } = useNuxtApp()
+const openModal = ref<string | null>(null)
 
 onMounted(async () => {
   // ✅ Force le scroll en haut au chargement
@@ -120,6 +153,7 @@ onMounted(async () => {
   })
 })
 </script>
+
 
 <style scoped>
 </style>

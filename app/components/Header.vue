@@ -2,11 +2,11 @@
   <nav class="relative flex py-5 justify-evenly bg-neutral-50 items-center text-sky-800 z-50 w-full before:absolute before:inset-0 before:bg-[url('/pattern.jpg')] before:bg-repeat before:bg-[size:150px_150px] before:opacity-5 before:-z-10">
     <img src="/logo.svg" alt="logo du site">
 
-    <div id="menue" class="flex gap-20 text-lg bg-white lg:bg-transparent max-lg:z-0 max-lg:flex-col max-lg:fixed max-lg:top-20 max-lg:right-0 max-lg:h-screen max-lg:w-64 max-lg:pt-24 max-lg:px-8 max-lg:items-center">
-      <a class="menue-link max-lg:p-2" href="/">Accueil</a>
-      <a class="menue-link max-lg:p-2" href="/">Portfolio</a>
-      <a class="menue-link max-lg:p-2" href="/">A propos</a>
-      <a class="menue-link text-white max-lg:p-2 max-lg:rounded lg:hidden bg-slate-700" href="/">Contact</a>
+    <div id="menue" class="flex gap-20 text-lg bg-white lg:bg-transparent max-lg:z-0 max-lg:border-2 max-lg:rounded max-lg:flex-col max-lg:fixed max-lg:top-20 max-lg:right-0 max-lg:h-screen max-lg:w-64 max-lg:pt-24 max-lg:px-8 max-lg:items-center">
+      <a class="menue-link max-lg:p-2" href="/" @click="menueShow && toggleMenue()">Accueil</a>
+      <a class="menue-link max-lg:p-2" href="#portfolio" @click="menueShow && toggleMenue()">Portfolio</a>
+      <a class="menue-link max-lg:p-2" href="/" @click="menueShow && toggleMenue()">A propos</a>
+      <a class="menue-link text-white max-lg:p-2 max-lg:rounded lg:hidden bg-sky-800" href="/" @click="menueShow && toggleMenue()">Contact</a>
     </div>
     
     <svg id="menueButton" @click="toggleMenue" class="max-lg:z-20 fill-gray-300 lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48px" height="48px"><path d="M51 46c1.104 0 2 .895 2 2 0 1.105-.896 2-2 2-.601 0-37.399 0-38 0-1.104 0-2-.895-2-2 0-1.105.896-2 2-2C13.601 46 50.399 46 51 46zM51 30c1.104 0 2 .895 2 2 0 1.105-.896 2-2 2-.601 0-37.399 0-38 0-1.104 0-2-.895-2-2 0-1.105.896-2 2-2C13.601 30 50.399 30 51 30zM51 14c1.104 0 2 .895 2 2 0 1.105-.896 2-2 2-.601 0-37.399 0-38 0-1.104 0-2-.895-2-2 0-1.105.896-2 2-2C13.601 14 50.399 14 51 14z"/></svg>
