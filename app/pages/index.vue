@@ -5,7 +5,7 @@
 
       <div class="hero-animate max-w-[480px] mx-0 lg:mx-40">
         <h1 class="text-3xl lg:text-4xl font-semibold text-sky-800">Bienvenue sur mon portfolio !</h1>
-        <p class="text-xl text-slate-700 lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis deux ans. J'aime passé mes journée a codé !</p>
+        <p class="text-xl text-slate-700 lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis deux ans. J'aime passer mes journées à coder !</p>
         <p class="mt-3 text-slate-700 text-base lg:text-lg">Je travaille principalement avec Vue.js, Nuxt et Tailwind CSS.</p>
         <a class="mt-4 inline-flex items-center gap-2 text-sky-300 hover:text-sky-400 transition-colors" href="#portfolio">
           Mon portfolio
@@ -38,7 +38,7 @@
           <img src="/portfolio.png" alt="image du projet portfolio" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: Portfolio</h3>
-            <p class="text-sm text-slate-700 mb-3">Un site vitrine responsive permettant de montrer mes dernier projet ainsie que mes competence.</p>
+            <p class="text-sm text-slate-700 mb-3">Un site vitrine responsive permettant de montrer mes derniers projets ainsi que mes compétences.</p>
             <p class="text-xs text-slate-500">Technologie : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
             <button @click="openModal = 'portfolio'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
@@ -48,7 +48,7 @@
           <img src="/placeholder.jpeg" alt="Capture du projet 2" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: LerichePoesie</h3>
-            <p class="text-sm text-slate-700 mb-3">Un site permettant a l'utilisateur de publier ces text de poésie via le dashboard de Strapi simplement avec integration front automatique.</p>
+            <p class="text-sm text-slate-700 mb-3">Un site permettant à l'utilisateur de publier ses textes de poésie via le dashboard de Strapi simplement avec intégration front automatique.</p>
             <p class="text-xs text-slate-500">Technologie : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
             <button @click="openModal = 'leriche'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
@@ -58,7 +58,7 @@
           <img src="/wp-stage.png" alt="Capture du projet 3" class="w-full h-56 lg:h-64 object-cover">
           <div class="p-4">
             <h3 class="text-xl font-semibold text-sky-800 mb-2">Projet: WP_stage</h3>
-            <p class="text-sm text-slate-700 mb-3">Un site web fesant office de rapport de stage de ma premiere periode de stage de terminale</p>
+            <p class="text-sm text-slate-700 mb-3">Un site web faisant office de rapport de stage de ma première période de stage de terminale</p>
             <p class="text-xs text-slate-500">Technologie : Vue, Nuxt, GSAP, Tailwind</p>
             <button @click="openModal = 'personal'" class="mt-4 inline-block px-3 py-2 bg-sky-800 text-white rounded hover:bg-sky-700">Voir plus</button>
           </div>
@@ -79,22 +79,22 @@
   
   <ProjectModal v-if="openModal === 'portfolio'" title="Projet: Portfolio" @close="openModal = null">
     <img src="/portfolio.png" alt="portfolio" class="w-full h-64 lg:h-[500px] object-cover mb-4">
-    <p class="text-slate-700">Détails étendus du projet Portfolio : site vitrine responsive réalisé avec Nuxt, animations GSAP et Tailwind. Il a été crée pour montrer mes competence et mes dernier projet.</p>
+    <p class="text-slate-700">Détails étendus du projet Portfolio : site vitrine responsive réalisé avec Nuxt, animations GSAP et Tailwind. Il a été créé pour montrer mes compétences et mes derniers projets.</p>
     <p class="mt-3 text-xs text-slate-500">Tech : Vue.js, Nuxt, GSAP, Tailwind CSS</p>
-    <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="https://github.com/zergoxsix/portfolio">Voire le repo GitHub</a>
+    <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="https://github.com/zergoxsix/portfolio">Voir le repo GitHub</a>
   </ProjectModal>
 
   <ProjectModal v-if="openModal === 'leriche'" title="Projet: LerichePoesie" @close="openModal = null">
     <img src="/placeholder.jpeg" alt="leriche" class="w-full h-64 lg:h-[500px] object-cover mb-4">
-    <p class="text-slate-700">LerichePoesie est une plateforme collaborative dédiée à la publication de poésies. Développée avec mon maître de stage durant ma deuxieme periode de stage de l'anée de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche</a>, j'ai pris en charge l'intégralité du backend avec Strapi, ainsi que le développement du carrousel affichant les poésies et la génération automatique des pages. Le reste de l'interface frontend a été réalisé par mon maître de stage.</p>
+    <p class="text-slate-700">LerichePoesie est une plateforme collaborative dédiée à la publication de poésies. Développée avec mon maître de stage durant ma deuxième période de stage de l'année de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche</a>, j'ai pris en charge l'intégralité du backend avec Strapi, ainsi que le développement du carrousel affichant les poésies et la génération automatique des pages. Le reste de l'interface frontend a été réalisé par mon maître de stage.</p>
     <p class="mt-3 text-xs text-slate-500">Tech : Strapi, Vue.js, Nuxt, GSAP, Tailwind CSS</p>
     <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="https://etienneleriche.com/">indisponible pour le moment</a>
   </ProjectModal>
 
   <ProjectModal v-if="openModal === 'personal'" title="Projet: WP_stage" @close="openModal = null">
   <img src="/wp-stage.png" alt="image du site wp_stage" class="w-full h-64 lg:h-[500px] object-cover mb-4">
-  <p class="text-slate-700">Un site web crée l'ors de ma premiere periode de stage de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche,</a> qui a fait office de raport de stage montrant tout ce que j'ai apris durant cette periode comme Sass, Php, Wordpress, BootStrap</p>
-  <p class="mt-3 text-xs text-slate-500">Tech : Wordpress, php, BootStrap</p>
+  <p class="text-slate-700">Un site web créé lors de ma première période de stage de terminale chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche,</a> qui a fait office de rapport de stage montrant tout ce que j'ai appris durant cette période comme Sass, Php, WordPress, Bootstrap</p>
+  <p class="mt-3 text-xs text-slate-500">Tech : WordPress, PHP, Bootstrap</p>
   <a class="text-white mt-6 inline-block p-2 rounded bg-sky-800" href="/">indisponible pour le moment</a>
   </ProjectModal>
 
