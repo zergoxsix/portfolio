@@ -76,6 +76,27 @@
       </div>
     </div>
   </section>
+
+  <section id="competence" class="pt-40 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-5">
+      <h3 class="text-3xl font-semibold text-sky-800 mb-20">Mes compétence</h3>
+
+      <div class="competence-viewport">
+        <div class="competence-track">
+          <img src="/html.png" alt="logo d'HTML 5">
+          <img src="/css.png" alt="logo CSS">
+          <img src="/javascript.png" alt="logo javascript">
+          <img src="/sass.png" alt="logo de sass">
+          <img src="/wordpress.png" alt="logo de wordpress">
+          <img src="/php.png" alt="logo de php">
+          <img src="/vueJs.png" alt="logo de vue js">
+          <img src="/nuxt.png" alt="logo de nuxt">
+          <img src="/bootstrap.png" alt="logo de bootstrap">
+          <img src="/tailwind.png" alt="logo de tailwind">
+        </div>
+      </div>
+    </div>
+  </section>
   
   <ProjectModal v-if="openModal === 'portfolio'" title="Projet: Portfolio" @close="openModal = null">
     <img src="/portfolio.png" alt="portfolio" class="w-full h-64 lg:h-[500px] object-cover mb-4">
@@ -100,18 +121,35 @@
 
   <ProjectModal v-if="openModal === 'miniapp'" title="Projet: Mini-application" @close="openModal = null">
     <img src="/placeholder.jpeg" alt="miniapp" class="w-full h-64 lg:h-[500px] object-cover mb-4">
-    <p class="text-slate-700">Mini-application démontrant des interactions temps réel via WebSocket, UI réactive et tests unitaires.</p>
-    <p class="mt-3 text-xs text-slate-500">Tech : Vue, WebSocket, Tailwind</p>
+    <p class="text-slate-700">Une integration d'une section comme entrainement pour réviser les bases du HTML et du CSS</p>
+    <p class="mt-3 text-xs text-slate-500">Tech : HTML, CSS, JS </p>
   </ProjectModal>
 
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import ProjectModal from '~/components/ProjectModal.vue'
 
 const { $gsap } = useNuxtApp()
 const openModal = ref<string | null>(null)
+
+watch(openModal, (newVal) => {
+  if (newVal) {
+    // Anime la modale quand elle apparaît
+    nextTick(() => {
+      const modal = document.querySelector('.relative.bg-white')
+      if (modal) {
+        $gsap.from(modal, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: "power2.out"
+        })
+      }
+    })
+  }
+})
 
 onMounted(async () => {
   // ✅ Force le scroll en haut au chargement
@@ -151,9 +189,35 @@ onMounted(async () => {
       toggleActions: "play none none none"
     }
   })
+
+  // Competence marquee GSAP
+  nextTick(() => {
+    const track = document.querySelector('#competence .competence-track') as HTMLElement | null
+    if (track) {
+      // duplicate children for seamless loop
+      const children = Array.from(track.children)
+      children.forEach((c) => track.appendChild(c.cloneNode(true)))
+
+      const totalWidth = track.scrollWidth / 2
+
+      $gsap.to(track, {
+        x: -totalWidth,
+        duration: 20,
+        ease: 'none',
+        repeat: -1
+      })
+    }
+  })
 })
 </script>
 
 
 <style scoped>
+/* Competence carousel */
+.competence-viewport { overflow: hidden; }
+.competence-track { display: flex; gap: 1.25rem; align-items: center; width: max-content; }
+.competence-track img { width: 56px; height: 56px; object-fit: contain; border-radius: 0.375rem; }
+@media (min-width: 1024px) {
+  .competence-track img { width: 88px; height: 88px; }
+}
 </style>
