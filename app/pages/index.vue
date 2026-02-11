@@ -1,7 +1,7 @@
 <template>
   <section id="heroSection" class=" bg-neutral-50 pt-5 px-5 lg:pt-40 flex items-center justify-center">
     <div class="flex flex-wrap justify-evenly items-center gap-10">
-      <img class="hero-animate w-[300px] h-[400px] lg:w-[350px] lg:h-[500px] rounded object-cover" src="/lubin.jpg" alt="Lubin Froeliger">
+      <img class="hero-animate w-[300px] h-[400px] lg:w-[350px] lg:h-[500px] rounded object-cover" src="/placeholder.jpeg" alt="Lubin Froeliger">
 
       <div class="hero-animate max-w-[480px] mx-0 lg:mx-40">
         <h1 class="text-3xl lg:text-4xl font-semibold text-sky-800">Bienvenue sur mon portfolio !</h1>
