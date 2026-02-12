@@ -5,7 +5,7 @@
     <div id="menue" class="flex gap-20 text-lg bg-white lg:bg-transparent max-lg:z-0 max-lg:border-2 max-lg:rounded max-lg:flex-col max-lg:fixed max-lg:top-20 max-lg:right-0 max-lg:h-screen max-lg:w-64 max-lg:pt-24 max-lg:px-8 max-lg:items-center">
       <a class="menue-link max-lg:p-2" href="/" @click="menueShow && toggleMenue()">Accueil</a>
       <a class="menue-link max-lg:p-2" href="#portfolio" @click="menueShow && toggleMenue()">Portfolio</a>
-      <a class="menue-link max-lg:p-2" href="/" @click="menueShow && toggleMenue()">À propos</a>
+      <a class="menue-link max-lg:p-2" href="/" @click="menueShow && toggleMenue()">Crédit</a>
       <a class="menue-link text-white max-lg:p-2 max-lg:rounded lg:hidden bg-sky-800" href="/" @click="menueShow && toggleMenue()">Contact</a>
     </div>
     

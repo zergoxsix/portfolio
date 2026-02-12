@@ -1,15 +1,15 @@
 <template>
-  <section id="heroSection" class=" bg-neutral-50 pt-5 px-5 lg:pt-40 flex items-center justify-center">
+  <section id="heroSection" class=" bg-neutral-50 lg:bg-transparent pt-5 px-5 lg:pt-40 flex items-center justify-center">
     <div class="flex flex-wrap justify-evenly items-center gap-10">
       <img class="hero-animate w-[300px] h-[400px] lg:w-[350px] lg:h-[500px] rounded object-cover" src="/placeholder.jpeg" alt="Lubin Froeliger">
 
       <div class="hero-animate max-w-[480px] mx-0 lg:mx-40">
         <h1 class="text-3xl lg:text-4xl font-semibold text-sky-800">Bienvenue sur mon portfolio !</h1>
-        <p class="text-xl text-slate-700 lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis deux ans. J'aime passer mes journées à coder !</p>
-        <p class="mt-3 text-slate-700 text-base lg:text-lg">Je travaille principalement avec Vue.js, Nuxt et Tailwind CSS.</p>
-        <a class="mt-4 inline-flex items-center gap-2 text-sky-300 hover:text-sky-400 transition-colors" href="#portfolio">
+        <p class="text-xl lg:text-2xl mt-3 lg:mt-5">Je m'appelle Lubin Froeliger, j'ai 17 ans et je suis passionné par le développement web depuis maintenant deux ans, ainsi que par tout ce qui est en lien avec le numérique, la musique, les jeux vidéo, le design, etc.</p>
+        <p class="mt-3 text-base lg:text-lg">Je travaille principalement avec Vue.js, Nuxt et Tailwind CSS.</p>
+        <a class="mt-4 inline-flex items-center gap-2 hover:opacity-80 transition-colors" :style="{ color: 'var(--accent-light)' }" href="#portfolio">
           Mon portfolio
-          <svg class="w-6 h-6 fill-sky-300" version="1.0" xmlns="http://www.w3.org/2000/svg"
+          <svg class="w-6 h-6" :style="{ fill: 'var(--accent-light)' }" version="1.0" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" stroke="none">
@@ -28,9 +28,9 @@
       </div>
     </div>
   </section>
-  <section id="portfolio" class="pt-40 bg-neutral-50">
+  <section id="portfolio" class="pt-40 bg-neutral-50 lg:bg-transparent">
     <div class="max-w-7xl mx-auto px-5">
-      <h2 class="title-animate text-3xl font-semibold text-sky-800 mb-20">Mes derniers projets</h2>
+      <h2 class="title-animate text-3xl font-semibold mb-20" :style="{ color: 'var(--text-primary)' }">Mes derniers projets</h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
@@ -77,9 +77,9 @@
     </div>
   </section>
 
-  <section id="competence" class="pt-40 bg-neutral-50">
+  <section id="competence" class="pt-40 pb-40 bg-neutral-50 lg:bg-transparent">
     <div class="max-w-7xl mx-auto px-5">
-      <h3 class="text-3xl font-semibold text-sky-800 mb-20">Mes compétence</h3>
+      <h3 class="text-3xl font-semibold text-sky-800 mb-20">Mes compétences</h3>
 
       <div class="competence-viewport">
         <div class="competence-track">
@@ -88,6 +88,7 @@
           <img src="/javascript.png" alt="logo javascript">
           <img src="/sass.png" alt="logo de sass">
           <img src="/wordpress.png" alt="logo de wordpress">
+          <img src="/strapi.png" alt="logo de strapi">
           <img src="/php.png" alt="logo de php">
           <img src="/vueJs.png" alt="logo de vue js">
           <img src="/nuxt.png" alt="logo de nuxt">
@@ -95,6 +96,10 @@
           <img src="/tailwind.png" alt="logo de tailwind">
         </div>
       </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 mt-20">
+      <p class="text-slate-700">Durant mes deux périodes de stage chez <a class="text-sky-300 underline" href="https://etienneleriche.com/">M. Étienne Leriche</a>, j'ai eu l'occasion d'apprendre de nombreuses technologies modernes telles que Nuxt.js, Tailwind CSS, WordPress, Bootstrap et Strapi, qui m'ont permis de progresser significativement dans le développement web.</p>
     </div>
   </section>
   
@@ -136,7 +141,7 @@ const openModal = ref<string | null>(null)
 
 watch(openModal, (newVal) => {
   if (newVal) {
-    // Anime la modale quand elle apparaît
+
     nextTick(() => {
       const modal = document.querySelector('.relative.bg-white')
       if (modal) {
@@ -152,7 +157,7 @@ watch(openModal, (newVal) => {
 })
 
 onMounted(async () => {
-  // ✅ Force le scroll en haut au chargement
+
   window.scrollTo(0, 0)
 
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
@@ -194,7 +199,7 @@ onMounted(async () => {
   nextTick(() => {
     const track = document.querySelector('#competence .competence-track') as HTMLElement | null
     if (track) {
-      // duplicate children for seamless loop
+
       const children = Array.from(track.children)
       children.forEach((c) => track.appendChild(c.cloneNode(true)))
 
@@ -209,6 +214,7 @@ onMounted(async () => {
     }
   })
 })
+
 </script>
 
 
